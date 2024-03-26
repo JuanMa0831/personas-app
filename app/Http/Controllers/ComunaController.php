@@ -4,17 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Models\Comuna;
 use Illuminate\Http\Request;
-use Illuminate\Support\Fecades\BD;
+use Illuminate\Support\Facades\DB;
 
 class ComunaController extends Controller
 {
     /**
      * Display a listing of the resource.
+     * 
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $Comunas = Comuna::all();
-        return view('comuna.index', ['comuna' =>$Comunas]);
+        //$comunas = Comuna::all();
+        $comunas = DB::table('tb_comuna')
+        -> join('tb_municipio', 'tb_comuna.muni_codi', '=', 'tb_municipio.muni_codi')
+        -> select('tb_comuna.*', 'tb_municipio.muni_nomb')
+        -> get();
+        return view('comuna.index', ['comunas' => $comunas]);
     }
 
     /**

@@ -17,18 +17,18 @@
     <table class="table table.striped">
   <thead>
     <tr>
-      <th scope="col">Code</th>
-      <th scope="col">Commune</th>
-      <th scope="col">Municipality</th>
-      <th scope="col">Actions</th>
+      <th scope="col">Codigo</th>
+      <th scope="col">Comuna</th>
+      <th scope="col">Municipio</th>
+      <th scope="col">Acciones</th>
     </tr>
   </thead>
   <tbody>
     @foreach ($comunas as $comuna)
     <tr>
-      <th scope="row">{{ $comuna->$comu_codi }}</th>
-      <td>{{$comuna->$comu_nomb}}</td>
-      <td>{{$comuna->$muni_nomb}}</td>
+      <th scope="row">{{ $comuna->comu_codi }}</th>
+      <td>{{$comuna->comu_nomb}}</td>
+      <td>{{$comuna->muni_nomb}}</td>
       <td><span>Actions</span></td>
     </tr>
     @endforeach
