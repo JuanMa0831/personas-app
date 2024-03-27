@@ -27,7 +27,7 @@
   </div>
 
   <label for="municipio">Municipio:</label>
-  <select class="form-select" id="municipio" name="codigo" required>
+  <select class="form-select" id="municipio" name="code" required>
     <option selected disabled value="">Escoge uno...</option>
     @foreach ($municipios as $municipio)
     <option value="{{ $municipio->muni_codi }}">{{ $municipio->muni_nomb }}</option>
@@ -35,7 +35,7 @@
   </select>
   <div class="mt-3">
     <button type="submit" class="btn btn-primary">Guardar</button>
-    <a href="{{ route('comunas.index') }}" class="btn btn-warring">Cancelar</a>
+    <a href="{{ route('comunas.index') }}" class="btn btn-warning">Cancelar</a>
   </div>
 </form>
     </div>
