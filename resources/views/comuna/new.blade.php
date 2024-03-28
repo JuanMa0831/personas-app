@@ -17,8 +17,8 @@
     <form method="POST" action="{{ route('comunas.store') }}">
         @csrf
   <div class="mb-3">
-    <label for="id" class="form-label">Codigo</label>
-    <input type="text" class="form-control" id="id" aria-describedby="idHelp" name="id" disabled="">
+    <label for="codi" class="form-label">Codigo</label>
+    <input type="text" class="form-control" id="comu_codi" aria-describedby="codiHelp" name="comu_codi" disabled="">
     <!--<div id="idHelp" class="form-text">Codigo Comuna</div>-->
   </div>
   <div class="mb-3">

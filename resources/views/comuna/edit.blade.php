@@ -18,11 +18,11 @@
         @method('put')
         @csrf
   <div class="mb-3">
-    <label for="id" class="form-label">Codigo</label>
-    <input type="text" class="form-control" id="id" aria-describedby="idHelp" name="id" disabled=""
+    <label for="codigo" class="form-label">Codigo</label>
+    <input type="text" class="form-control" id="comu_codi" aria-describedby="codigoHelp" name="comu_codi" disabled=""
     value="{{$comuna -> comu_codi}}">
-    <div> id= "idHelp" class="form-text">Comuna Id.</div>
-    <!--<div id="idHelp" class="form-text">Codigo Comuna</div>-->
+    <!--<div> id= "comu_codiHelp" class="form-text">Comuna Id</div>
+    <div id="idHelp" class="form-text">Codigo Comuna</div>-->
   </div>
   <div class="mb-3">
     <label for="name" class="form-label">Comuna</label>
@@ -34,7 +34,7 @@
   <select class="form-select" id="municipio" name="code" required>
     <option selected disabled value="">Escoge uno...</option>
     @foreach ($municipios as $municipio)
-    @if ($municipios -> muni_codi == $comuna -> muni_codi)
+    @if ($municipio -> muni_codi == $comuna -> muni_codi)
     <option selected value="{{$municipio->muni_codi}}">{{$municipio->muni_nomb}}</option>
     @else
     <option value="{{ $municipio->muni_codi }}">{{ $municipio->muni_nomb }}</option>
@@ -42,7 +42,7 @@
     @endforeach
   </select>
   <div class="mt-3">
-    <button type="submit" class="btn btn-primary">Guardar</button>
+    <button type="submit" class="btn btn-primary">Actualizar</button>
     <a href="{{ route('comunas.index') }}" class="btn btn-warning">Cancelar</a>
   </div>
 </form>

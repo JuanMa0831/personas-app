@@ -70,21 +70,25 @@ class ComunaController extends Controller
      * @return \Illuminate\Http\Response
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        $comuna = Comuna::find($id);
-        $municipios = DB::table('tb_comuna')
-    -> orderBy('muni_nomb')
-    -> get();
-    return view('comuna.index', ['comunas' => $comuna, 'municipios' => $municipios]);
+        $comuna = Comuna::where('comu_codi',$id)->first();
+        $municipios = DB::table('tb_municipio')
+        -> orderBy('muni_nomb')
+        -> get();
+        return view('comuna.edit', ['comuna' => $comuna, 'municipios' => $municipios]);
     }
 
     /**
+     * 
+     * @param int $id
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-            $comuna = Comuna::find($id);
+        $comuna = Comuna::where('comu_codi',$id)->first();
 
             $comuna->comu_nomb = $request->name;
             $comuna->muni_codi = $request->code;
@@ -104,9 +108,9 @@ class ComunaController extends Controller
      * @return \Illuminate\Http\Response
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        $comuna = Comuna::find($id);
+        $comuna = Comuna::where('comu_codi',$id)->first();
         $comuna -> delete();
 
         $comunas = DB::table('tb_comuna')
